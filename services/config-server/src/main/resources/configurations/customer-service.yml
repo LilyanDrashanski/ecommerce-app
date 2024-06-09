@@ -1,0 +1,10 @@
+data:
+  mongodb:
+    username: lily
+    password: lily
+    host: localhost
+    port: 27017
+    database: customer
+    authentication-database: admin
+server:
+  port: 8090
