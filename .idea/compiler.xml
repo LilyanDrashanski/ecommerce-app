@@ -13,6 +13,7 @@
     <bytecodeTargetLevel>
       <module name="com.lily.config-server.main" target="21" />
       <module name="com.lily.config-server.test" target="21" />
+      <module name="demo" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>
