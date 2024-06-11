@@ -1,6 +1,8 @@
 package com.lily.ecommerce.handler
 
-import jakarta.validation.ConstraintViolationException
+import com.lily.ecommerce.exception.CustomerNotFoundException
+import com.lily.ecommerce.exception.ErrorResponse
+import com.lily.ecommerce.exception.WrongAddressFormat
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.FieldError
@@ -12,10 +14,17 @@ import org.springframework.web.servlet.View
 @RestControllerAdvice
 class GlobalExceptionHandler(private val error: View) {
 
-    @ExceptionHandler(ConstraintViolationException::class)
-    fun handle(exception: ConstraintViolationException): ResponseEntity<String> {
+    @ExceptionHandler(CustomerNotFoundException::class)
+    fun handle(exception: CustomerNotFoundException): ResponseEntity<String> {
         return ResponseEntity
             .status(HttpStatus.NOT_FOUND)
+            .body(exception.message)
+    }
+
+    @ExceptionHandler(WrongAddressFormat::class)
+    fun handle(exception: WrongAddressFormat): ResponseEntity<String> {
+        return ResponseEntity
+            .status(HttpStatus.BAD_REQUEST)
             .body(exception.message)
     }
 

@@ -2,10 +2,11 @@ package com.lily.ecommerce.customer
 
 import jakarta.validation.constraints.Email
 import org.jetbrains.annotations.NotNull
+import java.util.*
 
 
 data class CustomerRequest(
-    var id: String,
+    var id: String = UUID.randomUUID().toString(),
     @NotNull("Customer first name is required")
     var firstName: String,
     @NotNull("Customer last name is required")

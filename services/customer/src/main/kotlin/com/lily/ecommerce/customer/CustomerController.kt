@@ -1,6 +1,7 @@
 package com.lily.ecommerce.customer
 
 import jakarta.validation.Valid
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*
 class CustomerController(private val service: CustomerService) {
 
     @PostMapping
-    fun createCustomer(@RequestBody @Valid request: CustomerRequest): ResponseEntity<String> {
+    fun createCustomer(@RequestBody @Valid request: CustomerRequest): ResponseEntity<Customer> {
         return ResponseEntity.ok(service.createCustomer(request))
     }
 

@@ -1,21 +1,19 @@
 package com.lily.ecommerce.customer
 
-import com.lily.ecommerce.handler.CustomerNotFoundException
-import lombok.RequiredArgsConstructor
+import com.lily.ecommerce.exception.CustomerNotFoundException
 import org.apache.commons.lang.StringUtils
 import org.springframework.stereotype.Service
 import java.util.stream.Collectors
 
 @Service
-@RequiredArgsConstructor
 class CustomerService(
     private val repository: CustomerRepository,
     private val mapper: CustomerMapper
 ) {
 
-    fun createCustomer(request: CustomerRequest): String {
+    fun createCustomer(request: CustomerRequest): Customer {
         val customer = repository.save(mapper.toCustomer(request))
-        return customer.id
+        return customer
     }
 
     fun updateCustomer(request: CustomerRequest) {
