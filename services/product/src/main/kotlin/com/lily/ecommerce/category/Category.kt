@@ -1,8 +1,7 @@
 package com.lily.ecommerce.category
 
 import jakarta.persistence.*
-import product.Product
-import java.math.BigDecimal
+import com.lily.ecommerce.product.Product
 
 @Entity
 data class Category(
@@ -10,7 +9,6 @@ data class Category(
     var id: Int,
     var name: String,
     var description: String,
-    var price: BigDecimal,
     @OneToMany(mappedBy = "category")
     var products: List<Product>
 )

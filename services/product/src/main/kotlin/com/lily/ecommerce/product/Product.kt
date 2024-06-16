@@ -1,16 +1,16 @@
-package product
+package com.lily.ecommerce.product
 
 import com.lily.ecommerce.category.Category
 import jakarta.persistence.*
-import java.math.BigDecimal
 
 @Entity
 data class Product(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int,
-    var name: String,
-    var description: String,
-    var price: BigDecimal,
+    val id: Int,
+    val name: String,
+    val description: String,
+    val price: Double,
+    val available: Double,
     @ManyToOne
     @JoinColumn(name = "category_id")
     val category: Category
