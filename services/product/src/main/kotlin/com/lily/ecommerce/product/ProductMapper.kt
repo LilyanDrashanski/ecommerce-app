@@ -1,6 +1,6 @@
 package com.lily.ecommerce.product
 
-import CategoryService
+import com.lily.ecommerce.category.CategoryService
 import org.springframework.stereotype.Service
 
 @Service

@@ -15,16 +15,16 @@ class ProductController(
     }
 
     @PostMapping("/purchase")
-    fun purchaseProduct(@Valid @RequestBody request: ProductPurchaseRequest): ResponseEntity<List<ProductPurchaseResponse>> {
+    fun purchaseProduct(@Valid @RequestBody request: List<ProductPurchaseRequest>): ResponseEntity<List<ProductPurchaseResponse>> {
         return ResponseEntity.ok(service.purchaseProducts(request))
     }
 
     @GetMapping("/{id}")
-    fun getProductById(@PathVariable("id") id: String): ResponseEntity<ProductResponse> {
+    fun getProductById(@PathVariable("id") id: Int): ResponseEntity<ProductResponse> {
         return ResponseEntity.ok(service.findById(id))
     }
 
-    @GetMapping()
+    @GetMapping
     fun getAllProducts(): ResponseEntity<List<ProductResponse>> {
         return ResponseEntity.ok(service.findAll())
     }

@@ -1,6 +1,6 @@
 package com.lily.ecommerce.product
 
-import CategoryService
+import com.lily.ecommerce.category.CategoryService
 import com.lily.ecommerce.exception.CategoryNotFoundException
 import com.lily.ecommerce.exception.ProductPurchaseException
 import org.springframework.stereotype.Service
@@ -10,8 +10,8 @@ import java.util.stream.Collectors
 abstract class ProductService(
     private val productRepository: ProductRepository,
     private val mapper: ProductMapper,
+    val categoryService: CategoryService
 ) {
-    abstract val categoryService: CategoryService
 
 
     fun createProduct(request: ProductRequest): Product {

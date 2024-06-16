@@ -1,10 +1,10 @@
-import com.lily.ecommerce.category.Category
-import com.lily.ecommerce.category.CategoryRepository
+package com.lily.ecommerce.category
+
 import com.lily.ecommerce.exception.CategoryNotFoundException
 import org.springframework.stereotype.Service
 
 @Service
-class CategoryService( private val categoryRepository: CategoryRepository) {
+class CategoryService(private val categoryRepository: CategoryRepository) {
 
     fun getCategoryById(categoryId: Int): Category {
         return categoryRepository.findById(categoryId)
