@@ -1,13 +1,13 @@
-package com.lily.ecommerce;
+package com.lily.ecommerce//package com.lily.ecommerce
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.Test
+import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class CustomerApplicationTests {
+class ProductApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    fun contextLoads() {
+    }
 
 }
