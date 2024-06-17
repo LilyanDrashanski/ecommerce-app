@@ -1,4 +1,4 @@
-package com.lily.ecommerce.customer
+package com.lily.ecommerce1.customer
 
 class Address(
     private val street: String,

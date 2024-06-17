@@ -7,13 +7,11 @@ import org.springframework.stereotype.Service
 import java.util.stream.Collectors
 
 @Service
-abstract class ProductService(
+class ProductService(
     private val productRepository: ProductRepository,
     private val mapper: ProductMapper,
     val categoryService: CategoryService
 ) {
-
-
     fun createProduct(request: ProductRequest): Product {
         val product = mapper.toProduct(request, categoryService)
         return productRepository.save(product)
@@ -38,17 +36,14 @@ abstract class ProductService(
         for (i in storedProducts.indices) {
             val product = storedProducts[i]
             val productRequest = sortedRequest[i]
-            if (product.available < productRequest.quantity) {
+            if (product.availableQuantity < productRequest.quantity) {
                 throw ProductPurchaseException("Insufficient stock quantity for product with ID:: ${productRequest.id}")
             }
         }
 
-
-
         return purchasedProducts
 
     }
-
 
     fun findById(id: Int): ProductResponse {
         return productRepository.findById(id)

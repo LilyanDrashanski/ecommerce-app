@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/v1/products")
 class ProductController(
-    private val service: ProductService
+     private val service: ProductService
 ) {
     @PostMapping
     fun createProduct(@Valid @RequestBody request: ProductRequest): ResponseEntity<Product> {

@@ -1,32 +1,23 @@
-package com.lily.ecommerce1.handler
+package com.lily.ecommerce.handler
 
-import com.lily.ecommerce1.exception.CustomerNotFoundException
-import com.lily.ecommerce1.exception.WrongAddressFormat
+import com.lily.ecommerce.exception.ProductPurchaseException
+import jakarta.persistence.EntityNotFoundException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.FieldError
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
-import org.springframework.web.servlet.View
 
 @RestControllerAdvice
-class GlobalExceptionHandler(private val error: View) {
+class GlobalExceptionHandler {
 
-    @ExceptionHandler(CustomerNotFoundException::class)
-    fun handle(exception: CustomerNotFoundException): ResponseEntity<String> {
-        return ResponseEntity
-            .status(HttpStatus.NOT_FOUND)
-            .body(exception.message)
-    }
-
-    @ExceptionHandler(WrongAddressFormat::class)
-    fun handle(exception: WrongAddressFormat): ResponseEntity<String> {
+    @ExceptionHandler(ProductPurchaseException::class)
+    fun handle(exception: ProductPurchaseException): ResponseEntity<String> {
         return ResponseEntity
             .status(HttpStatus.BAD_REQUEST)
             .body(exception.message)
     }
-
     @ExceptionHandler(MethodArgumentNotValidException::class)
     fun handle(exception: MethodArgumentNotValidException): ResponseEntity<ErrorResponse> {
         val errors = hashMapOf<String, String?>()
@@ -36,11 +27,15 @@ class GlobalExceptionHandler(private val error: View) {
             val errorMessage = fieldError.defaultMessage
             errors[fieldName] = errorMessage
         }
-
-
         return ResponseEntity
             .status(HttpStatus.BAD_GATEWAY)
             .body(ErrorResponse(errors))
+    }
+    @ExceptionHandler(EntityNotFoundException::class)
+    fun handle(exception: EntityNotFoundException): ResponseEntity<String> {
+        return ResponseEntity
+            .status(HttpStatus.NOT_FOUND)
+            .body(exception.message)
     }
 
 }

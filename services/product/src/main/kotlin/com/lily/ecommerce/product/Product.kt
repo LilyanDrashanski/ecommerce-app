@@ -10,7 +10,7 @@ data class Product(
     val name: String,
     val description: String,
     val price: Double,
-    val available: Double,
+    val availableQuantity: Double,
     @ManyToOne
     @JoinColumn(name = "category_id")
     val category: Category

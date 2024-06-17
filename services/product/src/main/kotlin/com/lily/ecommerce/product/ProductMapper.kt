@@ -27,7 +27,7 @@ class ProductMapper {
             product.name,
             product.description,
             product.price,
-            product.available,
+            product.availableQuantity,
             product.category.id,
             product.category.name,
             product.category.description

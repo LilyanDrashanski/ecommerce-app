@@ -1,7 +1,6 @@
-package com.lily.ecommerce.customer
+package com.lily.ecommerce1.customer
 
 import jakarta.validation.Valid
-import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 

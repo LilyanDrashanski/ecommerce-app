@@ -1,4 +1,4 @@
-package com.lily.ecommerce.customer
+package com.lily.ecommerce1.customer
 
 import jakarta.validation.constraints.Email
 import org.jetbrains.annotations.NotNull

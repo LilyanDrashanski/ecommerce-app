@@ -10,7 +10,7 @@ create table if not exists product
     description        varchar(255),
     name               varchar(255),
     available_quantity double precision not null,
-    price              numeric(38, 2),
+    price              float(53),
     category_id        integer
         constraint ssss references category
 );
