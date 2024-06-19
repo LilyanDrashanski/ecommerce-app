@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Positive
 import org.jetbrains.annotations.NotNull
 
 data class ProductRequest(
-    var id: Int,
+    val id: Int? = null,
     @NotNull("Product name is required")
     var name: String,
     @NotNull("Product description is required")
