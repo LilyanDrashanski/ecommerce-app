@@ -3,6 +3,11 @@ package com.lily.ecommerce.product
 import com.lily.ecommerce.category.CategoryService
 import com.lily.ecommerce.exception.CategoryNotFoundException
 import com.lily.ecommerce.exception.ProductPurchaseException
+import com.lily.ecommerce.product.DTO.ProductPurchaseRequestDTO
+import com.lily.ecommerce.product.DTO.ProductPurchaseResponseDTO
+import com.lily.ecommerce.product.DTO.ProductRequestDTO
+import com.lily.ecommerce.product.DTO.ProductResponseDTO
+import com.lily.ecommerce.product.mapper.ProductMapper
 import org.springframework.stereotype.Service
 import java.util.stream.Collectors
 
@@ -12,15 +17,15 @@ class ProductService(
     private val mapper: ProductMapper,
     val categoryService: CategoryService
 ) {
-    fun createProduct(request: ProductRequest): Product {
+    fun createProduct(request: ProductRequestDTO): Product {
         val product = mapper.toProduct(request, categoryService)
         return productRepository.save(product)
     }
 
-    fun purchaseProducts(request: List<ProductPurchaseRequest>): List<ProductPurchaseResponse>? {
+    fun purchaseProducts(request: List<ProductPurchaseRequestDTO>): List<ProductPurchaseResponseDTO>? {
         val productIds = request
             .stream()
-            .map(ProductPurchaseRequest::id)
+            .map(ProductPurchaseRequestDTO::id)
             .toList()
         val storedProducts = productRepository.findAllById(productIds)
         if (productIds.size != storedProducts.size) {
@@ -28,10 +33,10 @@ class ProductService(
         }
         val sortedRequest = request
             .stream()
-            .sorted(Comparator.comparing(ProductPurchaseRequest::id))
+            .sorted(Comparator.comparing(ProductPurchaseRequestDTO::id))
             .toList()
 
-        val purchasedProducts = mutableListOf<ProductPurchaseResponse>()
+        val purchasedProducts = mutableListOf<ProductPurchaseResponseDTO>()
 
         for (i in storedProducts.indices) {
             val product = storedProducts[i]
@@ -45,13 +50,13 @@ class ProductService(
 
     }
 
-    fun findById(id: Int): ProductResponse {
+    fun findById(id: Int): ProductResponseDTO {
         return productRepository.findById(id)
             .map(mapper::toProductResponse)
             .orElseThrow { CategoryNotFoundException("Product with $id not found") }
     }
 
-    fun findAll(): List<ProductResponse> {
+    fun findAll(): List<ProductResponseDTO> {
         return productRepository.findAll()
             .stream()
             .map(mapper::toProductResponse)

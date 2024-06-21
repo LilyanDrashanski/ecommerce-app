@@ -1,4 +1,4 @@
-package com.lily.ecommerce1.exception
+package com.lily.ecommerce.exception
 
 
 data class CustomerNotFoundException(val msg: String): RuntimeException()

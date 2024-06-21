@@ -1,5 +1,9 @@
 package com.lily.ecommerce.product
 
+import com.lily.ecommerce.product.DTO.ProductPurchaseRequestDTO
+import com.lily.ecommerce.product.DTO.ProductPurchaseResponseDTO
+import com.lily.ecommerce.product.DTO.ProductRequestDTO
+import com.lily.ecommerce.product.DTO.ProductResponseDTO
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -10,22 +14,22 @@ class ProductController(
      private val service: ProductService
 ) {
     @PostMapping
-    fun createProduct(@Valid @RequestBody request: ProductRequest): ResponseEntity<Product> {
+    fun createProduct(@Valid @RequestBody request: ProductRequestDTO): ResponseEntity<Product> {
         return ResponseEntity.ok(service.createProduct(request))
     }
 
     @PostMapping("/purchase")
-    fun purchaseProduct(@Valid @RequestBody request: List<ProductPurchaseRequest>): ResponseEntity<List<ProductPurchaseResponse>> {
+    fun purchaseProduct(@Valid @RequestBody request: List<ProductPurchaseRequestDTO>): ResponseEntity<List<ProductPurchaseResponseDTO>> {
         return ResponseEntity.ok(service.purchaseProducts(request))
     }
 
     @GetMapping("/{id}")
-    fun getProductById(@PathVariable("id") id: Int): ResponseEntity<ProductResponse> {
+    fun getProductById(@PathVariable("id") id: Int): ResponseEntity<ProductResponseDTO> {
         return ResponseEntity.ok(service.findById(id))
     }
 
     @GetMapping
-    fun getAllProducts(): ResponseEntity<List<ProductResponse>> {
+    fun getAllProducts(): ResponseEntity<List<ProductResponseDTO>> {
         return ResponseEntity.ok(service.findAll())
     }
 

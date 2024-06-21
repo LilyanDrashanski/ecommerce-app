@@ -1,3 +1,3 @@
-package com.lily.ecommerce1.handler
+package com.lily.ecommerce.handler
 
 data class ErrorResponse(val errors: HashMap<String, String?>)

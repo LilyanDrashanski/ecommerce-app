@@ -1,7 +1,7 @@
-package com.lily.ecommerce1.handler
+package com.lily.ecommerce.handler
 
-import com.lily.ecommerce1.exception.CustomerNotFoundException
-import com.lily.ecommerce1.exception.WrongAddressFormat
+import com.lily.ecommerce.exception.CustomerNotFoundException
+import com.lily.ecommerce.exception.WrongAddressFormat
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.FieldError

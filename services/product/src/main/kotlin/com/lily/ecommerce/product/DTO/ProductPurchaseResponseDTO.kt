@@ -1,6 +1,6 @@
-package com.lily.ecommerce.product
+package com.lily.ecommerce.product.DTO
 
-data class ProductPurchaseResponse(
+data class ProductPurchaseResponseDTO(
     val productId: Int,
     val productName: String,
     val productDescription: String,

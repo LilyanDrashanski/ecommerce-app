@@ -1,2 +1,4 @@
-package com.lily.ecommerce.exception 
+package com.lily.ecommerce.exception
 
+
+data class BusinessException(val msg: String): RuntimeException()

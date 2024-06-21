@@ -1,4 +1,4 @@
-package com.lily.ecommerce1.customer
+package com.lily.ecommerce.customer
 
 import org.springframework.data.mongodb.repository.MongoRepository
 

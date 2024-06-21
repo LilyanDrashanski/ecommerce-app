@@ -1,3 +1,3 @@
-package com.lily.ecommerce1.exception
+package com.lily.ecommerce.exception
 
 data class WrongAddressFormat (val msg: String): RuntimeException()

@@ -1,8 +1,8 @@
-package com.lily.ecommerce.product
+package com.lily.ecommerce.product.DTO
 
 
-data class ProductResponse(
-    var id: Int?,
+data class ProductResponseDTO(
+    var id: Int,
     var name: String,
     var description: String,
     var price: Double,

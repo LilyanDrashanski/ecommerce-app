@@ -1,4 +1,4 @@
-package com.lily.ecommerce1
+package com.lily.ecommerce
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
