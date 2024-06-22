@@ -9,13 +9,13 @@ import java.time.LocalDateTime
 @EntityListeners(AuditingEntityListener::class)
 @Table(name = "customer-order")
 class Order(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue
     var id: Int,
-    var reference: String,
-    var totalAmount: Int,
+    var reference: String?,
+    var totalAmount: Int?,
     @Enumerated(EnumType.STRING)
-    var paymentMethod: PaymentMethod,
-    var customerId: String,
+    var paymentMethod: PaymentMethod?,
+    var customerId: String?,
     @OneToMany(mappedBy = "order")
     var orderLines: List<OrderLine> = mutableListOf(),
     @CreatedDate @Column(updatable = false, nullable = false)

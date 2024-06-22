@@ -17,7 +17,7 @@ class ProductClient(
     val productUrl: String,
     val restTemplate: RestTemplate,
 ) {
-    fun purchaseProducts(request: List<PurchaseRequest>): List<PurchaseResponse>? {
+    fun purchaseProducts(request: List<PurchaseRequest>?): List<PurchaseResponse>? {
         val headers = HttpHeaders()
         headers.set(CONTENT_TYPE, APPLICATION_JSON_VALUE)
 

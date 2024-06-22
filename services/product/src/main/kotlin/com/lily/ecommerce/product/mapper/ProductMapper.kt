@@ -15,11 +15,11 @@ class ProductMapper {
     ): Product {
 
         return Product(
-            request.id,
-            request.name,
-            request.description,
-            request.price,
-            request.availableQuantity,
+            id = null,
+            name = request.name,
+            description = request.description,
+            price = request.price,
+            availableQuantity = request.availableQuantity,
             category = category.getCategoryById(request.categoryId)
         )
     }

@@ -33,7 +33,7 @@ class ProductService(
         }
         val sortedRequest = request
             .stream()
-            .sorted(Comparator.comparing(ProductPurchaseRequestDTO::id))
+            .sorted()
             .toList()
 
         val purchasedProducts = mutableListOf<ProductPurchaseResponseDTO>()
@@ -41,7 +41,7 @@ class ProductService(
         for (i in storedProducts.indices) {
             val product = storedProducts[i]
             val productRequest = sortedRequest[i]
-            if (product.availableQuantity < productRequest.quantity) {
+            if (product.availableQuantity!! < productRequest.quantity!!) {
                 throw ProductPurchaseException("Insufficient stock quantity for product with ID:: ${productRequest.id}")
             }
         }

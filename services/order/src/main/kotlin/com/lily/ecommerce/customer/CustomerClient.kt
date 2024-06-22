@@ -10,7 +10,7 @@ import java.util.*
     url = "\${application.config.customer-url}",
     )
 interface CustomerClient {
-    @GetMapping("/customer-id")
-    fun findCustomerById(@PathVariable ("custoemr-id") customerId: String): Optional<CustomerResponse>
+    @GetMapping("/{customer-id}")
+    fun findCustomerById(@PathVariable("customer-id") customerId: String?): Optional<CustomerResponse>
 
 }

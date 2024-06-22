@@ -28,6 +28,38 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/services/gateway" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/services/gateway" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/services/notification" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/services/notification" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/services/order" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/services/order" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/services/payment" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/services/payment" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/services/product" />
         <option name="modules">
           <set>

@@ -18,7 +18,7 @@ class CustomerMapper {
 
     fun fromCustomer(customer: Customer): CustomerResponseDTO {
         return CustomerResponseDTO(
-            token = customer.token,
+            token = customer.id,
             customer.firstName,
             customer.lastName,
             customer.email,

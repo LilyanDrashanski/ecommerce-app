@@ -4,9 +4,14 @@
     <bytecodeTargetLevel>
       <module name="com.lily.config-server.main" target="21" />
       <module name="com.lily.config-server.test" target="21" />
+      <module name="com.lily.test2.main" target="17" />
+      <module name="com.lily.test2.test" target="17" />
       <module name="demo" target="21" />
       <module name="demo.main" target="21" />
       <module name="demo.test" target="21" />
+      <module name="order-deprecated" target="17" />
+      <module name="test2.main" target="17" />
+      <module name="test2.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
