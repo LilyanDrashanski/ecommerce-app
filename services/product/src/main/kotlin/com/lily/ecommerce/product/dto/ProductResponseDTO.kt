@@ -1,12 +1,12 @@
-package com.lily.ecommerce.product.DTO
+package com.lily.ecommerce.product.dto
 
 
 data class ProductResponseDTO(
-    var id: String?,
+    var id: Int?,
     var name: String?,
     var description: String?,
-    var price: Double?,
-    val availableQuantity: Double?,
+    var price: Int?,
+    val availableQuantity: Int?,
     val categoryId: Int,
     val categoryName: String,
     val categoryDescription: String,

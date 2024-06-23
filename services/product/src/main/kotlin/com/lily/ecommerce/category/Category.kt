@@ -11,4 +11,8 @@ data class Category(
     var description: String,
     @OneToMany(mappedBy = "category")
     var products: List<Product>
-)
+) {
+    override fun toString(): String {
+        return "Category(id=$id, name=$name, description=$description)"
+    }
+}

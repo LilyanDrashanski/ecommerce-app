@@ -1,9 +1,9 @@
 package com.lily.ecommerce.product
 
-import com.lily.ecommerce.product.DTO.ProductPurchaseRequestDTO
-import com.lily.ecommerce.product.DTO.ProductPurchaseResponseDTO
-import com.lily.ecommerce.product.DTO.ProductRequestDTO
-import com.lily.ecommerce.product.DTO.ProductResponseDTO
+import com.lily.ecommerce.product.dto.ProductPurchaseRequestDTO
+import com.lily.ecommerce.product.dto.ProductPurchaseResponseDTO
+import com.lily.ecommerce.product.dto.ProductRequestDTO
+import com.lily.ecommerce.product.dto.ProductResponseDTO
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -20,6 +20,8 @@ class ProductController(
 
     @PostMapping("/purchase")
     fun purchaseProduct(@Valid @RequestBody request: List<ProductPurchaseRequestDTO>): ResponseEntity<List<ProductPurchaseResponseDTO>> {
+        println("Received purchase request: $request")
+
         return ResponseEntity.ok(service.purchaseProducts(request))
     }
 

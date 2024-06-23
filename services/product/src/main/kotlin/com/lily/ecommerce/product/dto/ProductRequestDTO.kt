@@ -1,4 +1,4 @@
-package com.lily.ecommerce.product.DTO
+package com.lily.ecommerce.product.dto
 
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Positive
@@ -9,9 +9,9 @@ data class ProductRequestDTO(
     @field:NotBlank(message = "Product description is required")
     var description: String?,
     @field:Positive(message = "Price should be positive")
-    var price: Double?,
+    var price: Int?,
     @field:Positive(message = "Quantity should be positive")
-    val availableQuantity: Double?,
+    val availableQuantity: Int?,
     @field:NotBlank(message = "Category Id is required")
     var categoryId: Int?
 )

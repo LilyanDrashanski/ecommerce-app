@@ -2,9 +2,11 @@ package com.lily.ecommerce.product.mapper
 
 import com.lily.ecommerce.category.CategoryService
 import com.lily.ecommerce.product.Product
-import com.lily.ecommerce.product.DTO.ProductRequestDTO
-import com.lily.ecommerce.product.DTO.ProductResponseDTO
+import com.lily.ecommerce.product.dto.ProductPurchaseResponseDTO
+import com.lily.ecommerce.product.dto.ProductRequestDTO
+import com.lily.ecommerce.product.dto.ProductResponseDTO
 import org.springframework.stereotype.Service
+
 
 @Service
 class ProductMapper {
@@ -34,6 +36,16 @@ class ProductMapper {
             product.category.id,
             product.category.name,
             product.category.description
+        )
+    }
+
+    fun toProductPurchaseResponse(product: Product, quantity: Int): ProductPurchaseResponseDTO {
+        return ProductPurchaseResponseDTO(
+            product.id,
+            product.name,
+            product.description,
+            product.price,
+            quantity
         )
     }
 

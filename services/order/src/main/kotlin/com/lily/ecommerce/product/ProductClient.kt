@@ -25,9 +25,11 @@ class ProductClient(
 
         val responseType = object : ParameterizedTypeReference<List<PurchaseResponse>>() {}
 
+        println("Sending request to $productUrl/purchase with headers: $headers and body: $request")
+
         val responseEntity = restTemplate.exchange("$productUrl/purchase", POST, requestEntity, responseType)
 
-        if (responseEntity.statusCode.isError){
+        if (responseEntity.statusCode.isError) {
             throw BusinessException("An error occured while processing the products purchase " + responseEntity.statusCode)
         }
         return responseEntity.body

@@ -33,6 +33,9 @@ class OrderService(
             .orElseThrow { BusinessException("Cannot create order: Customer not found") }
 
 
+        // Logging request body for debugging
+        println("Sending request to productclient purchase with body: ${request.products})")
+
         val purchasedProducts = productClient.purchaseProducts(request.products)
 
         val order = orderRepository.save(mapper.toOrder(request))
@@ -49,6 +52,7 @@ class OrderService(
         }
 
         val paymentRequest = PaymentRequestDTO(
+
             amount = request.amount,
             paymentMethod = request.paymentMethod,
             orderId = order.id,
